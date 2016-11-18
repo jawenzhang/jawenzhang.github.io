@@ -3,14 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>归档: 2016 | CodePower.cc @jawenzhang</title>
+  <title>腾讯云几个微信小程序示例尝试记录 | CodePower.cc @jawenzhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="CodePower.cc @jawenzhang">
-<meta property="og:url" content="http://yoursite.com/archives/2016/index.html">
+  <meta name="description" content="抽空体验了一下腾讯云结合自己的产品，放出的几个微信小程序demo.感受如下：https://www.qcloud.com/doc/product/448/6425这里提出了四个场景应用。提供了微信小程序demo及服务端代码实现。第一个：上传下载。服务端代码使用的是cos v3(云对象存储)的jdk,将用户通过小程序上传">
+<meta property="og:type" content="article">
+<meta property="og:title" content="腾讯云几个微信小程序示例尝试记录">
+<meta property="og:url" content="http://yoursite.com/2016/11/17/腾讯云几个微信小程序示例尝试记录/index.html">
 <meta property="og:site_name" content="CodePower.cc @jawenzhang">
+<meta property="og:description" content="抽空体验了一下腾讯云结合自己的产品，放出的几个微信小程序demo.感受如下：https://www.qcloud.com/doc/product/448/6425这里提出了四个场景应用。提供了微信小程序demo及服务端代码实现。第一个：上传下载。服务端代码使用的是cos v3(云对象存储)的jdk,将用户通过小程序上传">
+<meta property="og:updated_time" content="2016-11-18T01:11:48.059Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CodePower.cc @jawenzhang">
+<meta name="twitter:title" content="腾讯云几个微信小程序示例尝试记录">
+<meta name="twitter:description" content="抽空体验了一下腾讯云结合自己的产品，放出的几个微信小程序demo.感受如下：https://www.qcloud.com/doc/product/448/6425这里提出了四个场景应用。提供了微信小程序demo及服务端代码实现。第一个：上传下载。服务端代码使用的是cos v3(云对象存储)的jdk,将用户通过小程序上传">
   
     <link rel="alternate" href="/atom.xml" title="CodePower.cc @jawenzhang" type="application/atom+xml">
   
@@ -59,134 +63,59 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/17/腾讯云几个微信小程序示例尝试记录/" class="archive-article-date">
-  <time datetime="2016-11-17T12:05:10.000Z" itemprop="datePublished">11月 17</time>
+        <section id="main"><article id="post-腾讯云几个微信小程序示例尝试记录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/17/腾讯云几个微信小程序示例尝试记录/" class="article-date">
+  <time datetime="2016-11-17T12:05:10.000Z" itemprop="datePublished">2016-11-17</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/17/腾讯云几个微信小程序示例尝试记录/">腾讯云几个微信小程序示例尝试记录</a>
+    <h1 class="article-title" itemprop="name">
+      腾讯云几个微信小程序示例尝试记录
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/14/多终端同步使用hexo/" class="archive-article-date">
-  <time datetime="2016-11-14T10:22:25.000Z" itemprop="datePublished">11月 14</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/14/多终端同步使用hexo/">多终端同步使用hexo</a>
-    </h1>
-  
+        <p>抽空体验了一下腾讯云结合自己的产品，放出的几个微信小程序demo.感受如下：<br><a href="https://www.qcloud.com/doc/product/448/6425" target="_blank" rel="external">https://www.qcloud.com/doc/product/448/6425</a><br>这里提出了四个场景应用。提供了微信小程序demo及服务端代码实现。<br>第一个：上传下载。服务端代码使用的是cos v3(云对象存储)的jdk,将用户通过小程序上传<br><a id="more"></a><br>的文件放到cos上存储。这个搭建，理解都不难。坑爹的是：腾讯云现在已经是cos v4了，v3的jdk已经使用不上，不知道是v4的密钥，id之类的与v3不共还是如何，而且v4版本居然还没有node版本的jdk放出。分析清楚原因后，也只好无奈放弃体验。</p>
+<p>第二个。会话管理。</p>
+<p>第三个。webSocket长连接应用管理，这个server端容易部署，但客户端出现es6 generatorRuntime error。搞了半天没有解决。</p>
+<p>第四个。视频应用。需要云mysql，又要我的钱，算了。</p>
+<p>另外 ，还有一个算是打包的demo了。<a href="https://github.com/jawenzhang/weapp-node-server-demo" target="_blank" rel="external">https://github.com/jawenzhang/weapp-node-server-demo</a><br>这个搭起来后，跑不起来。研究半天，发现除了node业务端服务器，还需要一个”鉴权服务器”，也就是一个会话管理的服务，需要php+apache，暂时懒得搭。 有心情再说吧。虽然有镜像可以快速搭建起来，但是没钱买第二台cvm.</p>
+<p>总而言之，各种原因，没有跑通一个腾讯云提供的demo。算了，还是找些简单的demo先学习学习。前端js，nodejs也不是很扎实。需要慢慢抽空来了。</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/14/nodejs-https,腾讯云ssl证书几个小问题/" class="archive-article-date">
-  <time datetime="2016-11-14T01:51:15.000Z" itemprop="datePublished">11月 14</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/14/nodejs-https,腾讯云ssl证书几个小问题/">nodejs-https几个小问题</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/11/nodejs-https/" class="archive-article-date">
-  <time datetime="2016-11-11T07:30:48.000Z" itemprop="datePublished">11月 11</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/17/腾讯云几个微信小程序示例尝试记录/" data-id="civn39bx60000co1sdc8i0w71" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/11/nodejs-https/">nodejs-https</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/09/开笔/" class="archive-article-date">
-  <time datetime="2016-11-09T07:28:41.000Z" itemprop="datePublished">11月 9</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/09/开笔/">开笔</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs后端-体验-demo/">nodejs后端 体验 demo</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/01/hello-world/" class="archive-article-date">
-  <time datetime="2016-11-01T06:35:48.000Z" itemprop="datePublished">11月 1</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/01/hello-world/">Hello World</a>
-    </h1>
   
+    <a href="/2016/11/14/多终端同步使用hexo/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">多终端同步使用hexo</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         
