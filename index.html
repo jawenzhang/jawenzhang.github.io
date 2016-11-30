@@ -61,6 +61,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-M_R模型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/30/M_R模型/" class="article-date">
+  <time datetime="2016-11-30T07:45:47.606Z" itemprop="datePublished">2016-11-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>MapReduce受到lisp等函数式编程语言的启发，发现大部分的计算任务包括两个处理流程：</p>
+<p><strong><em>map操作</em></strong>：对每条逻辑记录计算Key/Value对<br><strong><em>reduce操作</em></strong>：对Key/Value按照Key进行聚合</p>
+<h2 id="Programming-Model"><a href="#Programming-Model" class="headerlink" title="Programming Model"></a>Programming Model</h2><p>MapReduce的计算以一组Key/Value对为输入，然后输出一组Key/Value对，用户通过编写Map和Reduce函数来控制处理逻辑。</p>
+<p>Map函数把输入转换成一组中间的Key/Value对，MapReduce library会把所有Key的中间结果传递给Reduce函数处理。</p>
+<p>Reduce函数接收Key和其对应的一组Value，它的作用就是聚合这些Value，产生最终的结果。Reduce的输入是以迭代器的方式输入，使得MapReduce可以处理数据量比内存大的情况。</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>以经典的word count为例，其伪代码为</p>
+<pre><code>Map(String key, String value):
+// key: document name
+// value: document contents
+for each word w in value:
+    EmitIntermediate(w, &quot;1&quot;);    
+
+
+Reduce(String key, Iterator values):
+// key: a word
+// values: a list of counts
+int result = 0;
+for each v in values:
+    result += ParseInt(v);
+Emit(AsString(result));
+</code></pre><p>Map函数吐出(word, count)的KV对，<br>Reduce把某个单词的所有的count加起来，最终每个单词吐出一个值。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/30/M_R模型/" data-id="ciw4mp23600099s1s4ub50cfu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-MIT-6-824" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/11/30/MIT-6-824/" class="article-date">
@@ -89,7 +136,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/30/MIT-6-824/" data-id="ciw4bjsdk0000jc1swik7r1dr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/30/MIT-6-824/" data-id="ciw4mp22r00009s1s37kn08pm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式-raft/">分布式 raft</a></li></ul>
@@ -131,7 +178,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/30/raft/" data-id="ciw4bjsdv0005jc1sd7u3w5ve" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/30/raft/" data-id="ciw4mp23400089s1soh57hzke" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/raft-分布式-一致性/">raft 分布式 一致性</a></li></ul>
@@ -170,7 +217,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/21/分享一篇比较优秀的wx-weapp的开发过程/" data-id="ciw4bjsed000kjc1snbrh2jlf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/21/分享一篇比较优秀的wx-weapp的开发过程/" data-id="ciw4mp23300059s1sp3u6bs39" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信小程序-nodejs/">微信小程序 nodejs</a></li></ul>
@@ -213,7 +260,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/17/腾讯云几个微信小程序示例尝试记录/" data-id="ciw4bjsec000jjc1snx4zzha8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/17/腾讯云几个微信小程序示例尝试记录/" data-id="ciw4mp23l000n9s1swcfgjk99" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs后端-体验-demo/">nodejs后端 体验 demo</a></li></ul>
@@ -255,7 +302,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/14/多终端同步使用hexo/" data-id="ciw4bjsdy0008jc1syx6gwqcf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/14/多终端同步使用hexo/" data-id="ciw4mp23a000d9s1s3p8rmohv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo-多终端/">hexo 多终端</a></li></ul>
@@ -309,7 +356,7 @@ var server = https.createServer(options, app);`
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/14/nodejs-https,腾讯云ssl证书几个小问题/" data-id="ciw4bjsds0003jc1sbaijc4my" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/14/nodejs-https,腾讯云ssl证书几个小问题/" data-id="ciw4mp23100049s1stclxjvwn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs-https-腾讯云ssl证书/">nodejs https 腾讯云ssl证书</a></li></ul>
@@ -348,7 +395,7 @@ var server = https.createServer(options, app);`
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/11/nodejs-https/" data-id="ciw4bjsdt0004jc1sddrd6xti" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/11/nodejs-https/" data-id="ciw4mp22u00019s1s2pxzdjg4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs-express-htts/">nodejs express htts</a></li></ul>
@@ -387,7 +434,7 @@ var server = https.createServer(options, app);`
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/09/开笔/" data-id="ciw4bjse00009jc1sbrm2ic0e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/09/开笔/" data-id="ciw4mp239000b9s1saz598zsg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自励-学习/">自励 学习</a></li></ul>
@@ -434,7 +481,7 @@ var server = https.createServer(options, app);`
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/01/hello-world/" data-id="ciw4bjsdo0001jc1sqbzyprqi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/01/hello-world/" data-id="ciw4mp22z00039s1sk611dwoy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -488,6 +535,10 @@ var server = https.createServer(options, app);`
       <ul>
         
           <li>
+            <a href="/2016/11/30/M_R模型/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2016/11/30/MIT-6-824/">MIT 6.824</a>
           </li>
         
@@ -501,10 +552,6 @@ var server = https.createServer(options, app);`
         
           <li>
             <a href="/2016/11/17/腾讯云几个微信小程序示例尝试记录/">腾讯云几个微信小程序示例尝试记录</a>
-          </li>
-        
-          <li>
-            <a href="/2016/11/14/多终端同步使用hexo/">多终端同步使用hexo</a>
           </li>
         
       </ul>

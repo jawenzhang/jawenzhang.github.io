@@ -3,14 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>归档: 2016 | CodePower.cc @jawenzhang</title>
+  <title>CodePower.cc @jawenzhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="IntroductionMapReduce受到lisp等函数式编程语言的启发，发现大部分的计算任务包括两个处理流程：
+map操作：对每条逻辑记录计算Key/Value对reduce操作：对Key/Value按照Key进行聚合
+Programming ModelMapReduce的计算以一组Key/Value对为输入，然后输出一组Key/Value对，用户通过编写Map和Reduce函数来控制处理逻">
+<meta property="og:type" content="article">
 <meta property="og:title" content="CodePower.cc @jawenzhang">
-<meta property="og:url" content="http://yoursite.com/archives/2016/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/11/30/M_R模型/index.html">
 <meta property="og:site_name" content="CodePower.cc @jawenzhang">
+<meta property="og:description" content="IntroductionMapReduce受到lisp等函数式编程语言的启发，发现大部分的计算任务包括两个处理流程：
+map操作：对每条逻辑记录计算Key/Value对reduce操作：对Key/Value按照Key进行聚合
+Programming ModelMapReduce的计算以一组Key/Value对为输入，然后输出一组Key/Value对，用户通过编写Map和Reduce函数来控制处理逻">
+<meta property="og:updated_time" content="2016-11-30T07:45:47.661Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CodePower.cc @jawenzhang">
+<meta name="twitter:description" content="IntroductionMapReduce受到lisp等函数式编程语言的启发，发现大部分的计算任务包括两个处理流程：
+map操作：对每条逻辑记录计算Key/Value对reduce操作：对Key/Value按照Key进行聚合
+Programming ModelMapReduce的计算以一组Key/Value对为输入，然后输出一组Key/Value对，用户通过编写Map和Reduce函数来控制处理逻">
   
     <link rel="alternate" href="/atom.xml" title="CodePower.cc @jawenzhang" type="application/atom+xml">
   
@@ -59,204 +69,62 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/30/M_R模型/" class="archive-article-date">
-  <time datetime="2016-11-30T07:45:47.606Z" itemprop="datePublished">11月 30</time>
+        <section id="main"><article id="post-M_R模型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/30/M_R模型/" class="article-date">
+  <time datetime="2016-11-30T07:45:47.606Z" itemprop="datePublished">2016-11-30</time>
 </a>
-      
-    </header>
+    
   </div>
-</article>
-  
+  <div class="article-inner">
     
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/30/MIT-6-824/" class="archive-article-date">
-  <time datetime="2016-11-30T02:32:36.000Z" itemprop="datePublished">11月 30</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/30/MIT-6-824/">MIT 6.824</a>
-    </h1>
-  
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>MapReduce受到lisp等函数式编程语言的启发，发现大部分的计算任务包括两个处理流程：</p>
+<p><strong><em>map操作</em></strong>：对每条逻辑记录计算Key/Value对<br><strong><em>reduce操作</em></strong>：对Key/Value按照Key进行聚合</p>
+<h2 id="Programming-Model"><a href="#Programming-Model" class="headerlink" title="Programming Model"></a>Programming Model</h2><p>MapReduce的计算以一组Key/Value对为输入，然后输出一组Key/Value对，用户通过编写Map和Reduce函数来控制处理逻辑。</p>
+<p>Map函数把输入转换成一组中间的Key/Value对，MapReduce library会把所有Key的中间结果传递给Reduce函数处理。</p>
+<p>Reduce函数接收Key和其对应的一组Value，它的作用就是聚合这些Value，产生最终的结果。Reduce的输入是以迭代器的方式输入，使得MapReduce可以处理数据量比内存大的情况。</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>以经典的word count为例，其伪代码为</p>
+<pre><code>Map(String key, String value):
+// key: document name
+// value: document contents
+for each word w in value:
+    EmitIntermediate(w, &quot;1&quot;);    
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/30/raft/" class="archive-article-date">
-  <time datetime="2016-11-30T02:17:58.000Z" itemprop="datePublished">11月 30</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/30/raft/">raft</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/21/分享一篇比较优秀的wx-weapp的开发过程/" class="archive-article-date">
-  <time datetime="2016-11-21T12:24:57.000Z" itemprop="datePublished">11月 21</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/21/分享一篇比较优秀的wx-weapp的开发过程/">分享一篇比较优秀的wx-weapp的开发过程</a>
-    </h1>
-  
+Reduce(String key, Iterator values):
+// key: a word
+// values: a list of counts
+int result = 0;
+for each v in values:
+    result += ParseInt(v);
+Emit(AsString(result));
+</code></pre><p>Map函数吐出(word, count)的KV对，<br>Reduce把某个单词的所有的count加起来，最终每个单词吐出一个值。</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/17/腾讯云几个微信小程序示例尝试记录/" class="archive-article-date">
-  <time datetime="2016-11-17T12:05:10.000Z" itemprop="datePublished">11月 17</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/17/腾讯云几个微信小程序示例尝试记录/">腾讯云几个微信小程序示例尝试记录</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/14/多终端同步使用hexo/" class="archive-article-date">
-  <time datetime="2016-11-14T10:22:25.000Z" itemprop="datePublished">11月 14</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/30/M_R模型/" data-id="ciw4mp23600099s1s4ub50cfu" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/14/多终端同步使用hexo/">多终端同步使用hexo</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/14/nodejs-https,腾讯云ssl证书几个小问题/" class="archive-article-date">
-  <time datetime="2016-11-14T01:51:15.000Z" itemprop="datePublished">11月 14</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/14/nodejs-https,腾讯云ssl证书几个小问题/">nodejs-https几个小问题</a>
-    </h1>
-  
-
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/11/nodejs-https/" class="archive-article-date">
-  <time datetime="2016-11-11T07:30:48.000Z" itemprop="datePublished">11月 11</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/11/nodejs-https/">nodejs-https</a>
-    </h1>
   
+    <a href="/2016/11/30/MIT-6-824/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MIT 6.824</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/09/开笔/" class="archive-article-date">
-  <time datetime="2016-11-09T07:28:41.000Z" itemprop="datePublished">11月 9</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/09/开笔/">开笔</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/01/hello-world/" class="archive-article-date">
-  <time datetime="2016-11-01T06:35:48.000Z" itemprop="datePublished">11月 1</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/01/hello-world/">Hello World</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
 </section>
         
