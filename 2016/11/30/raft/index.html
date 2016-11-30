@@ -3,18 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>开笔 | CodePower.cc @jawenzhang</title>
+  <title>raft | CodePower.cc @jawenzhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这段时间有点对前端兴趣，相比较与后端相比，比较容易给行外人进行一些展示。陆续看过一些node, express, angularjs等内容。也申请了一个微信小程序的appid, 也想学习一下这方面的内容。感觉还是比较有发展前景。买了一个云主机，一个域名。希望有时间可以促进自己多学习一下前端开发及Node开发知识。特在github搭了一个blog。记录下学习过程和心得。">
+  <meta name="description" content="raft理解这是一篇学习raft论文的总结，主要是对看论文过程中难以理解的几个问题的记录。系统性的讲解还是得看raft论文，论文原文是最好的材料。http://www.jianshu.com/p/4711c4c32aab
+raft 解读系列(1) 之 原理http://www.jianshu.com/p/a5d37ca84f5e
+raft论文的中文版地址https://github.com/mae">
 <meta property="og:type" content="article">
-<meta property="og:title" content="开笔">
-<meta property="og:url" content="http://yoursite.com/2016/11/09/开笔/index.html">
+<meta property="og:title" content="raft">
+<meta property="og:url" content="http://yoursite.com/2016/11/30/raft/index.html">
 <meta property="og:site_name" content="CodePower.cc @jawenzhang">
-<meta property="og:description" content="这段时间有点对前端兴趣，相比较与后端相比，比较容易给行外人进行一些展示。陆续看过一些node, express, angularjs等内容。也申请了一个微信小程序的appid, 也想学习一下这方面的内容。感觉还是比较有发展前景。买了一个云主机，一个域名。希望有时间可以促进自己多学习一下前端开发及Node开发知识。特在github搭了一个blog。记录下学习过程和心得。">
-<meta property="og:updated_time" content="2016-11-14T01:39:00.253Z">
+<meta property="og:description" content="raft理解这是一篇学习raft论文的总结，主要是对看论文过程中难以理解的几个问题的记录。系统性的讲解还是得看raft论文，论文原文是最好的材料。http://www.jianshu.com/p/4711c4c32aab
+raft 解读系列(1) 之 原理http://www.jianshu.com/p/a5d37ca84f5e
+raft论文的中文版地址https://github.com/mae">
+<meta property="og:updated_time" content="2016-11-30T02:20:22.464Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="开笔">
-<meta name="twitter:description" content="这段时间有点对前端兴趣，相比较与后端相比，比较容易给行外人进行一些展示。陆续看过一些node, express, angularjs等内容。也申请了一个微信小程序的appid, 也想学习一下这方面的内容。感觉还是比较有发展前景。买了一个云主机，一个域名。希望有时间可以促进自己多学习一下前端开发及Node开发知识。特在github搭了一个blog。记录下学习过程和心得。">
+<meta name="twitter:title" content="raft">
+<meta name="twitter:description" content="raft理解这是一篇学习raft论文的总结，主要是对看论文过程中难以理解的几个问题的记录。系统性的讲解还是得看raft论文，论文原文是最好的材料。http://www.jianshu.com/p/4711c4c32aab
+raft 解读系列(1) 之 原理http://www.jianshu.com/p/a5d37ca84f5e
+raft论文的中文版地址https://github.com/mae">
   
     <link rel="alternate" href="/atom.xml" title="CodePower.cc @jawenzhang" type="application/atom+xml">
   
@@ -63,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-开笔" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-raft" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/11/09/开笔/" class="article-date">
-  <time datetime="2016-11-09T07:28:41.000Z" itemprop="datePublished">2016-11-09</time>
+    <a href="/2016/11/30/raft/" class="article-date">
+  <time datetime="2016-11-30T02:17:58.000Z" itemprop="datePublished">2016-11-30</time>
 </a>
     
   </div>
@@ -77,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      开笔
+      raft
     </h1>
   
 
@@ -85,15 +91,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这段时间有点对前端兴趣，相比较与后端相比，比较容易给行外人进行一些展示。陆续看过一些node, express, angularjs等内容。也申请了一个微信小程序的appid, 也想学习一下这方面的内容。感觉还是比较有发展前景。买了一个云主机，一个域名。希望有时间可以促进自己多学习一下前端开发及Node开发知识。特在github搭了一个blog。记录下学习过程和心得。</p>
+        <p>raft理解<br>这是一篇学习raft论文的总结，主要是对看论文过程中难以理解的几个问题的记录。系统性的讲解还是得看raft论文，论文原文是最好的材料。<br><a href="http://www.jianshu.com/p/4711c4c32aab" target="_blank" rel="external">http://www.jianshu.com/p/4711c4c32aab</a></p>
+<p>raft 解读系列(1) 之 原理<br><a href="http://www.jianshu.com/p/a5d37ca84f5e" target="_blank" rel="external">http://www.jianshu.com/p/a5d37ca84f5e</a></p>
+<p>raft论文的中文版地址<br><a href="https://github.com/maemual/raft-zh_cn/blob/master/raft-zh_cn.md" target="_blank" rel="external">https://github.com/maemual/raft-zh_cn/blob/master/raft-zh_cn.md</a></p>
+<p>raft安全性如何保证<br><a href="http://www.jianshu.com/p/c8587f952ef3" target="_blank" rel="external">http://www.jianshu.com/p/c8587f952ef3</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/09/开笔/" data-id="ciw4b8gzy0009a81sdu030c3u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/30/raft/" data-id="ciw4b8gzs0005a81sigmxf4l1" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自励-学习/">自励 学习</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/raft-分布式-一致性/">raft 分布式 一致性</a></li></ul>
 
     </footer>
   </div>
@@ -101,19 +110,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/11/11/nodejs-https/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          nodejs-https
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/11/01/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/11/21/分享一篇比较优秀的wx-weapp的开发过程/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">分享一篇比较优秀的wx-weapp的开发过程</div>
     </a>
   
 </nav>
